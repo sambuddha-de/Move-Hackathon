@@ -1,0 +1,27 @@
+<nav class="navbar navbar-fixed-top navbar-dark" style="background-color: #313845">
+  	<button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+        ☰
+    </button>
+     <%= image_tag("resolution_logo.png", :class=>"img-responsive navbar-brand", :style=>"height:70px;padding:0")%>
+   <div class="collapse navbar-toggleable-xs" id = "collapsingNavbar">
+   	
+        <ul class="nav navbar-nav pull-right">
+          <li class="nav-item active"> 
+		     <% if session[:user_id].nil? %>
+		        <%= link_to 'Login as Judge', {:controller => 'home', :action => 'index'}, :class=>"nav-link" %>
+		     <% else %>
+		        <img src="/assets/Login_icon.png" style="padding-left: 15px;" alt="Logged in as judge <%= session[:user_name] %>" title="Logged in as judge <%= session[:user_name] %>" />
+		        <%= link_to 'Logout', {:controller => 'home', :action => 'logout'} %>
+		    <% end %>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+	$(document).ready(function() {
+	  $('[data-toggle=offcanvas]').click(function() {
+	    $('.row-offcanvas').toggleClass('active');
+	  });
+	});
+</script>

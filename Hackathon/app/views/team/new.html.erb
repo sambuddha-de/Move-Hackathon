@@ -1,21 +1,6 @@
  <div class="page-container">
  <div class="container">
-  <nav class="navbar navbar-fixed-top navbar-dark" style="background-color: #313845">
-  	<button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-        ☰
-    </button>
-     <%= image_tag("resolution_logo.png", :class=>"img-responsive navbar-brand", :style=>"height:70px;padding:0")%>
-   <div class="collapse navbar-toggleable-xs" id = "collapsingNavbar">
-   	
-        <ul class="nav navbar-nav pull-right">
-            <li class="nav-item active">
-                <a class="nav-link" href="/home/index">Login as Judge</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-
+     <%= render :partial => 'common/header' %>
 	 <div class="row row-offcanvas row-offcanvas-left">
 	    <%= render :partial => '/adminlinks' %>
 	      <!-- main area -->
@@ -48,16 +33,6 @@
     </div><!--/.row-->
   </div><!--/.container-->
 </div><!--/.page-container-->
-<script>
-	$(document).ready(function() {
-	  $('[data-toggle=offcanvas]').click(function() {
-	    $('.row-offcanvas').toggleClass('active');
-	  });
-	});
-</script>
-
-<style>
 
 
 
-</style>

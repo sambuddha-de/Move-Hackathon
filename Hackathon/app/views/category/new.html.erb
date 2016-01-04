@@ -1,28 +1,27 @@
-<table border="1" width="100%">
-  <tr>
-    <td width="10%">
-      <h2>New Category</h2>
-    </td>
-    <td width="90%" align="right">
-      <%= flash[:message] %>
-      <% flash[:message] = '' %>
-    </td>
-  </tr>
-  <tr>
-    <td width="10%"><%= render :partial => '/adminlinks' %></td>
-    <td width="90%">
-
-        <%= form_for :category, url:category_create_path  do |f| %>
-
-            <p>Name</p>
-            <p><%= f.text_field :name %></p>
-
-            <%= f.submit %>
-
+<div class="page-container">
+ <div class="container">
+     <%= render :partial => 'common/header' %>
+	 <div class="row row-offcanvas row-offcanvas-left">
+	    <%= render :partial => '/adminlinks' %>
+          <!-- main area -->
+        <div class="col-xs-12 col-sm-9">
+         <div class="alert alert-success" role="alert" style="display:none;">
+          <strong><%= flash[:message] %></strong> 
+           <% flash[:message] = '' %>
+         </div>
+          <h2>New Category</h2>
+           <%= form_for :category, url:category_create_path  do |f| %>
+           <fieldset class="form-group">
+            <%= f.label(:name, "Name")%>
+            <%= f.text_field :name, :class=>"form-control", :placeholder=>"Enter Name"  %>
+           </fieldset>
+          <fieldset class="form-group">
+            <%= f.submit "Save Category", :class=>"btn btn-primary" %>
+             <%= link_to 'Back', {:action => 'list'} , :class=>"btn btn-primary"%>
+           </fieldset>
         <% end %>
-
-        <%= link_to 'Back', {:action => 'list'} %>
-
-    </td>
-  </tr>
-</table>
+       
+         </div><!-- /.col-xs-12 main -->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</div><!--/.page-container-->
