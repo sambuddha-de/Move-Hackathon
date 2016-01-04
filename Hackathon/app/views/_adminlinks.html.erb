@@ -1,20 +1,14 @@
-    <table class="admin_page" width="100%" cellpadding="5" cellspacing="0" border="1">
+ <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <ul class="nav">
+              <li class="active"><%= link_to 'Manage Teams', {:controller => 'team', :action => 'list'} %></li>
+              <li><%= link_to 'Manage Judges', {:controller => 'judge', :action => 'list'} %></li>
+              <li><%= link_to 'Manage Categories', {:controller => 'category', :action => 'list'} %></li>
+              <li><%= link_to 'Manage Ratings', {:controller => 'rating', :action => 'list'} %></li>   
+            </ul>
+        </div>
 
-      <tr>
-        <td><%= link_to 'Manage Teams', {:controller => 'team', :action => 'list'} %></td>
-      </tr>
+ 
 
-      <tr>
-        <td><%= link_to 'Manage Judges', {:controller => 'judge', :action => 'list'} %></td>
-      </tr>
 
-      <tr>
-        <td><%= link_to 'Manage Categories', {:controller => 'category', :action => 'list'} %></td>
-      </tr>
-
-      <tr>
-        <td><%= link_to 'Manage Ratings', {:controller => 'rating', :action => 'list'} %></td>
-      </tr>
-
-    </table>
+<!-- #1ca8dd -->
 

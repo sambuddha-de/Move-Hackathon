@@ -1,35 +1,58 @@
-<table border="1" width="100%">
-  <tr>
-    <td width="10%">
-      <h2>New Team</h2>
-    </td>
-    <td width="90%" align="right">
-    </td>
-  </tr>
-  <tr>
-    <td width="10%"><%= render :partial => '/adminlinks' %></td>
-    <td width="90%">
+ <div class="page-container">
+ <div class="container">
+  <nav class="navbar navbar-fixed-top navbar-dark" style="background-color: #313845">
+  	<button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+        ☰
+    </button>
+     <%= image_tag("resolution_logo.png", :class=>"img-responsive navbar-brand", :style=>"height:70px;padding:0")%>
+   <div class="collapse navbar-toggleable-xs" id = "collapsingNavbar">
+   	
+        <ul class="nav navbar-nav pull-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home/index">Login as Judge</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-        <%= form_for :team, url:team_create_path  do |f| %>
 
-            <p>Name</p>
-            <p><%= f.text_field :name %></p>
+	 <div class="row row-offcanvas row-offcanvas-left">
+	    <%= render :partial => '/adminlinks' %>
+	      <!-- main area -->
+        <div class="col-xs-12 col-sm-9">
+        	<h2>New Team</h2>
+          <%= form_for :team, url:team_create_path  do |f| %>
 
-            <p>Members</p>
+            <%= f.label(:name, "Name")%>
+            <%= f.text_field :name %>
+
+            <%= f.label(:members, "Members")%>
             <p><%= f.text_area :members %></p>
 
-            <p>Description</p>
+            <%= f.label(:description, "Description")%>
             <p><%= f.text_area :description %></p>
 
-            <p>Summary</p>
+            <%= f.label(:summary, "Summary")%>
             <p><%= f.text_area :summary %></p>
 
             <%= f.submit %>
 
         <% end %>
-
         <%= link_to 'Back', {:action => 'list'} %>
+         </div><!-- /.col-xs-12 main -->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</div><!--/.page-container-->
+<script>
+	$(document).ready(function() {
+	  $('[data-toggle=offcanvas]').click(function() {
+	    $('.row-offcanvas').toggleClass('active');
+	  });
+	});
+</script>
 
-    </td>
-  </tr>
-</table>
+<style>
+
+
+
+</style>
